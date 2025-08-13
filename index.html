@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paparan KIP BPS Provinsi Sumatera Utara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-orange: #FF7F00;
+            --color-blue: #0A3D62;
+            --color-green: #388E3C;
+            --color-red: #8B0000;
+            --color-gray: #f4f4f4;
+            --color-text-light: #fff;
+            --color-text-dark: #333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-gray);
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .progress-bar-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--color-orange);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .button-nav {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button-nav:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        
+        .chart-bar-container {
+            position: relative;
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            margin: 0 auto;
+        }
+        .chart-bar-fill {
+            width: 100%;
+            transition: height 0.5s ease;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .chart-bar-text {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .chart-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+        }
+
+        .diagram-lingkaran {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(var(--color-green) 0% var(--persentase-hijau), var(--color-orange) var(--persentase-hijau) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--color-text-light);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            margin: auto;
+        }
+
+        .se2026-logo {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 md:p-8">
+
+    <div class="presentation-container w-full max-w-7xl aspect-video bg-white overflow-hidden relative">
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <!-- Slide 1: Halaman Judul -->
+        <div id="slide-1" class="slide active bg-gradient-to-br from-orange-500 to-red-800 flex-col items-center justify-center p-8 text-center text-white">
+            <div class="flex items-center justify-center mb-6 space-x-8 animate-slide-in">
+                <img src="https://placehold.co/150x150/ffffff/0A3D62?text=Logo+BPS" alt="Logo BPS" class="h-24 md:h-32">
+                <img src="https://placehold.co/150x150/ffffff/0A3D62?text=Logo+KIP" alt="Logo KIP" class="h-24 md:h-32">
+                <img src="https://placehold.co/150x150/ffffff/0A3D62?text=Logo+SE2026" alt="Logo Sensus Ekonomi 2026" class="h-24 md:h-32 se2026-logo">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-wide mb-4 animate-slide-in">
+                PAPARAN KETERBUKAAN INFORMASI PUBLIK
+            </h1>
+            <h2 class="text-xl md:text-3xl font-bold italic tracking-wide mb-8 animate-slide-in">
+                Membangun Budaya Kerja Berintegritas Menuju Sensus Ekonomi 2026 yang Transparan
+            </h2>
+            <div class="text-base md:text-xl animate-slide-in">
+                <p class="font-bold">BPS Provinsi Sumatera Utara</p>
+                <p>Medan, 26 Agustus 2024</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Visi & Misi dan Budaya Kerja -->
+        <div id="slide-2" class="slide bg-white flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800 animate-slide-in">
+                Visi, Misi, dan Budaya Kerja BPS Sumatera Utara
+            </h2>
+            <div class="flex flex-col lg:flex-row w-full max-w-7xl items-start lg:space-x-8 animate-slide-in">
+                <div class="w-full lg:w-1/3 p-6 bg-orange-100 rounded-xl shadow-md mb-4 lg:mb-0">
+                    <h3 class="text-2xl font-bold mb-4 text-orange-800">VISI & MISI PPID</h3>
+                    <p class="text-gray-700 italic text-sm">"Terwujudnya pelayanan informasi publik yang berkualitas untuk mendukung terwujudnya Tata Kelola Pemerintahan yang baik dan bersih"</p>
+                    <p class="mt-4 font-semibold text-sm">Bukti Dukung: <span class="text-blue-600">Profil PPID.pdf</span></p>
+                </div>
+                <div class="w-full lg:w-2/3 p-6 bg-blue-100 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">BUDAYA KERJA "STMJ"</h3>
+                    <div class="flex flex-wrap text-center space-x-2 lg:space-x-4 justify-center text-white font-bold">
+                        <span class="p-2 bg-green-600 rounded-lg">BERDAYA SAING</span>
+                        <span class="p-2 bg-blue-600 rounded-lg">TOLERAN</span>
+                        <span class="p-2 bg-orange-500 rounded-lg">MAJU</span>
+                        <span class="p-2 bg-red-800 rounded-lg">JAYA</span>
+                    </div>
+                    <p class="text-gray-700 mt-4 text-sm">Nilai-nilai ini menjadi pondasi dalam setiap pelayanan dan pekerjaan, memastikan integritas dan kinerja tinggi.</p>
+                    <p class="mt-2 font-semibold text-sm">Bukti Dukung: <span class="text-blue-600">1200_BPS Provinsi Sumatera Utara (2).pdf</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Legalitas & SOP -->
+        <div id="slide-3" class="slide bg-white flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800 animate-slide-in">
+                Legalitas dan Standar Operasional Prosedur (SOP)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl animate-slide-in">
+                <div class="p-6 bg-green-100 rounded-lg shadow-md flex items-center space-x-4">
+                    <img src="https://placehold.co/80x80/388E3C/ffffff?text=SK" alt="Logo SK" class="h-16">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1 text-green-800">Pembentukan PPID & Tim</h3>
+                        <p class="text-sm text-gray-700">Telah ditetapkan Surat Keputusan (SK) resmi mengenai pembentukan dan pengelolaan PPID.</p>
+                        <p class="mt-1 font-semibold text-sm">Bukti: <span class="text-blue-600">SK tentang Pembentukan dan Pengelolaan PPID.pdf</span></p>
+                    </div>
+                </div>
+                <div class="p-6 bg-orange-100 rounded-lg shadow-md flex items-center space-x-4">
+                    <img src="https://placehold.co/80x80/FF7F00/ffffff?text=SOP" alt="Logo SOP" class="h-16">
+                    <div>
+                        <h3 class="text-xl font-bold mb-1 text-orange-800">SOP Layanan Publik</h3>
+                        <p class="text-sm text-gray-700">Berbagai SOP telah ditetapkan, termasuk alur permohonan, keberatan, dan uji konsekuensi.</p>
+                        <p class="mt-1 font-semibold text-sm">Bukti: <span class="text-blue-600">Penetapan Standar Operasional Prosedur.pdf</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Alur Permohonan & Biaya -->
+        <div id="slide-4" class="slide bg-gray-50 flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800">
+                Alur Permohonan dan Biaya Layanan Informasi
+            </h2>
+            <div class="w-full max-w-6xl p-6 bg-white rounded-lg shadow-md mb-8">
+                <!-- Placeholder for Flowchart -->
+                <img src="https://placehold.co/1200x400/0A3D62/ffffff?text=ALUR+PERMOHONAN+DAN+KEBERATAN" alt="Alur Permohonan" class="w-full">
+            </div>
+            <p class="text-gray-700 text-center font-bold text-lg mb-4">
+                Pelayanan informasi publik di BPS Provinsi Sumatera Utara tidak dipungut biaya.
+            </p>
+            <div class="w-full max-w-2xl p-4 bg-orange-100 rounded-lg shadow-md text-center">
+                <p class="text-sm text-gray-800">Biaya yang dikenakan hanya untuk penggandaan dan perekaman, sesuai regulasi.</p>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Dukungan Anggaran -->
+        <div id="slide-5" class="slide bg-white flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800">
+                Dukungan Anggaran & Transparansi Keuangan
+            </h2>
+            <div class="w-full max-w-5xl">
+                <div class="flex items-end justify-center h-72 space-x-8">
+                    <div class="w-1/3 flex-col text-center">
+                        <div class="chart-bar-container h-48 w-full bg-blue-100 rounded-t-lg relative">
+                            <div class="chart-bar-fill bg-blue-600" style="height: 80%;"></div>
+                            <span class="text-lg font-bold text-white absolute bottom-2 left-1/2 -translate-x-1/2">Rp 99 Juta</span>
+                        </div>
+                        <p class="text-lg font-bold mt-2 text-blue-800">Anggaran 2024</p>
+                    </div>
+                    <div class="w-1/3 flex-col text-center">
+                        <div class="chart-bar-container h-64 w-full bg-orange-100 rounded-t-lg relative">
+                            <div class="chart-bar-fill bg-orange-500" style="height: 100%;"></div>
+                            <span class="text-lg font-bold text-white absolute bottom-2 left-1/2 -translate-x-1/2">Rp 163 Juta</span>
+                        </div>
+                        <p class="text-lg font-bold mt-2 text-orange-600">Anggaran 2025</p>
+                    </div>
+                </div>
+                <div class="text-gray-700 text-center mt-8">
+                    <p>Terjadi peningkatan anggaran untuk PPID sebesar **65%** dari tahun 2024 ke 2025.</p>
+                    <p class="mt-2 font-semibold">Bukti: <span class="text-blue-600">Anggaran Peningkatan PPID.pdf, Perbandingan Realisasi PPID.pdf</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Monitoring & Evaluasi Kinerja -->
+        <div id="slide-6" class="slide bg-gray-50 flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800">
+                Monitoring dan Evaluasi Pelaksanaan PPID
+            </h2>
+            <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">Semester I 2024</h3>
+                    <p class="text-sm text-gray-600">Laporan evaluasi pelaksanaan KIP dan perbaikan untuk periode Januari-Juni.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-green-600">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">Semester II 2024</h3>
+                    <p class="text-sm text-gray-600">Laporan evaluasi pelaksanaan KIP dan perbaikan untuk periode Juli-Desember.</p>
+                </div>
+            </div>
+            <div class="w-full max-w-4xl mt-8">
+                <p class="text-center font-bold text-lg text-gray-700">Peningkatan Capaian Kinerja</p>
+                <img src="https://placehold.co/1200x300/0A3D62/ffffff?text=GRAFIK+PENINGKATAN+KINERJA" alt="Grafik Peningkatan Kinerja" class="w-full mt-4 rounded-lg">
+            </div>
+            <div class="mt-8 text-gray-700 text-center">
+                <p class="font-semibold">Bukti: <span class="text-blue-600">Monitoring dan Evaluasi Pelaksanaan PPID Semester I/II 2024.pdf</span></p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Laporan Kinerja & Penilaian -->
+        <div id="slide-7" class="slide bg-blue-500 flex-col items-center justify-center p-8 text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+                Pencapaian dan Peningkatan Kinerja
+            </h2>
+            <div class="flex w-full max-w-6xl space-x-8">
+                <div class="w-1/2 p-6 bg-white rounded-lg shadow-md text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-orange-500">Laporan Kinerja PPID 2024</h3>
+                    <p class="text-gray-700">Laporan yang telah disusun untuk tahun 2024.</p>
+                    <img src="https://placehold.co/600x400/FF7F00/ffffff?text=RINGKASAN+LAPORAN" alt="Ringkasan Laporan" class="w-full mt-4 rounded-lg">
+                </div>
+                <div class="w-1/2 p-6 bg-white rounded-lg shadow-md text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-green-600">Indeks Peningkatan Layanan</h3>
+                    <div class="grid grid-cols-2 gap-4 text-left">
+                        <div class="p-3 bg-gray-100 rounded-lg">
+                            <p class="text-xl font-bold text-blue-800">97,58</p>
+                            <p class="text-sm text-gray-700">Indeks Kepuasan Konsumen (IKK)</p>
+                        </div>
+                        <div class="p-3 bg-gray-100 rounded-lg">
+                            <p class="text-xl font-bold text-blue-800">4,67 (Prima)</p>
+                            <p class="text-sm text-gray-700">Indeks Pelayanan Publik</p>
+                        </div>
+                        <div class="p-3 bg-gray-100 rounded-lg col-span-2">
+                            <p class="text-xl font-bold text-blue-800">98,13</p>
+                            <p class="text-sm text-gray-700">Indeks Perilaku Anti Korupsi (IPAK)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-white text-center">
+                <p class="font-semibold">Bukti: <span class="text-white underline">Laporan PPID 2024.pdf, Bahan tayang wawancara TPN (1).pptx, 1200_BPS Provinsi Sumatera Utara (2).pdf</span></p>
+            </div>
+        </div>
+        
+        <!-- Slide 8: Pengelolaan DIK dan Transparansi -->
+        <div id="slide-8" class="slide bg-white flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800">
+                Transparansi Pengelolaan Informasi
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
+                <div class="p-6 bg-green-100 rounded-lg shadow-md border-l-4 border-green-600">
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Manajemen Risiko</h3>
+                    <p class="text-sm text-gray-600">Pengelolaan risiko terintegrasi, termasuk risiko integritas, kinerja, dan layanan.</p>
+                </div>
+                <div class="p-6 bg-orange-100 rounded-lg shadow-md border-l-4 border-orange-600">
+                    <h3 class="text-xl font-bold mb-2 text-orange-800">Pengelolaan Informasi Dikecualikan</h3>
+                    <p class="text-sm text-gray-600">Informasi publik lebih banyak dari yang dikecualikan, didukung oleh uji konsekuensi.</p>
+                </div>
+            </div>
+            <div class="mt-8 text-gray-700 text-center">
+                <p class="font-semibold">Bukti: <span class="text-blue-600">Perbandingan DIK dan DIP.pdf, Uji Konsekuensi.pdf, 1200_BPS Provinsi Sumatera Utara (2).pdf</span></p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Inovasi Layanan Publik -->
+        <div id="slide-9" class="slide bg-white flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800">
+                Inovasi Pelayanan Publik Berbasis Teknologi
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+                <div class="p-4 bg-gray-100 rounded-lg shadow-sm border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">ALUSI</h3>
+                    <p class="text-sm text-gray-600">Anjungan Layanan Unggul Sistem Informasi, menyatukan seluruh layanan digital BPS dalam satu pintu.</p>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow-sm border-l-4 border-green-600">
+                    <h3 class="text-xl font-bold mb-2 text-green-800">EDA BOT</h3>
+                    <p class="text-sm text-gray-600">Layanan chatbot untuk akses data statistik 24 jam via Telegram.</p>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow-sm border-l-4 border-orange-600">
+                    <h3 class="text-xl font-bold mb-2 text-orange-800">PARIBAN</h3>
+                    <p class="text-sm text-gray-600">Pelayanan Prima Bagi Kelompok Rentan, dengan fasilitas khusus untuk disabilitas.</p>
+                </div>
+            </div>
+            <div class="mt-8 text-gray-700 text-center">
+                <p class="font-semibold">Bukti: <span class="text-blue-600">1200_BPS Provinsi Sumatera Utara (2).pdf</span></p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Sinergi dan Kolaborasi -->
+        <div id="slide-10" class="slide bg-orange-50 flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-orange-600">
+                Kolaborasi Strategis untuk Keterbukaan Informasi
+            </h2>
+            <div class="w-full max-w-6xl p-6 bg-white rounded-xl shadow-md text-center">
+                <div class="flex items-center justify-center space-x-6 mb-4">
+                    <img src="https://placehold.co/100x100/0A3D62/ffffff?text=MoU+Gubsu" alt="MoU dengan Gubernur Sumut" class="h-20">
+                    <img src="https://placehold.co/100x100/388E3C/ffffff?text=Logo+USU" alt="MoU dengan USU" class="h-20">
+                    <img src="https://placehold.co/100x100/FF7F00/ffffff?text=Logo+UMSU" alt="PKS dengan UMSU" class="h-20">
+                </div>
+                <h3 class="text-xl font-bold text-orange-800">Pojok Statistik & Satu Data Indonesia</h3>
+                <p class="text-gray-700 mt-2">BPS menjalin kerja sama dengan akademisi dan pemerintah daerah untuk memperluas akses data dan mendukung kebijakan berbasis bukti.</p>
+            </div>
+            <div class="mt-8 text-gray-700 text-center">
+                <p class="font-semibold">Bukti: <span class="text-blue-600">MoU Satu Data 2025 BPS-Gubsu stempel.pdf, PKS BPS-UMSU 2025-2028.pdf</span></p>
+            </div>
+        </div>
+        
+        <!-- Slide 11: Penguatan Integritas dan Transparansi Internal -->
+        <div id="slide-11" class="slide bg-white flex-col items-center justify-center p-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-red-800">
+                Penguatan Integritas dan Budaya Kerja Transparan
+            </h2>
+            <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-blue-100 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">Penanganan Pengaduan dan WBS</h3>
+                    <p class="text-sm text-gray-700">Telah dibentuk tim pengelola aduan via email/WA dan disosialisasikan secara terbuka.</p>
+                </div>
+                <div class="p-6 bg-green-100 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Pelaporan Integritas & Keuangan</h3>
+                    <p class="text-sm text-gray-700">Seluruh pegawai telah melaporkan LHKPN dan SPT dengan realisasi 100%.</p>
+                </div>
+            </div>
+            <div class="mt-8 text-gray-700 text-center">
+                <p class="font-semibold">Bukti: <span class="text-blue-600">1200_BPS Provinsi Sumatera Utara (2).pdf, Bahan tayang wawancara TPN (1).pptx</span></p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Penutup & Kesimpulan -->
+        <div id="slide-12" class="slide bg-gradient-to-br from-orange-500 to-red-800 flex-col items-center justify-center p-8 text-white text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-wide">
+                Keterbukaan Informasi adalah Kunci
+            </h2>
+            <p class="text-xl md:text-2xl italic mb-8">
+                Untuk mewujudkan Sensus Ekonomi 2026 yang Sukses, Akuntabel, dan Dipercaya oleh Seluruh Masyarakat.
+            </p>
+            <div class="flex items-center justify-center space-x-6">
+                <img src="https://placehold.co/120x120/ffffff/0A3D62?text=Logo+BPS" alt="Logo BPS" class="h-20 md:h-24">
+                <img src="https://placehold.co/120x120/ffffff/000000?text=Logo+SE2026" alt="Logo Sensus Ekonomi 2026" class="h-20 md:h-24">
+            </div>
+            <div class="mt-8 text-lg md:text-xl">
+                <p class="font-bold">Terima kasih atas perhatiannya.</p>
+                <p>BPS Provinsi Sumatera Utara</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="absolute bottom-4 right-4 flex space-x-2 z-20">
+        <button id="prevBtn" class="button-nav">Sebelumnya</button>
+        <button id="nextBtn" class="button-nav">Selanjutnya</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            updateProgressBar();
+            updateButtons();
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+            nextBtn.style.opacity = currentSlide === slides.length - 1 ? '0.5' : '1';
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            }
+        });
+        
+        showSlide(currentSlide);
+        updateButtons();
+    </script>
+</body>
+</html>
